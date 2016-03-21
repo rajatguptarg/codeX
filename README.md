@@ -1,5 +1,5 @@
-# codeX
-Text Editor written in Python using Qt framework (Beta Version)
+# codeX (Beta)
+Text Editor written in Python using Qt framework
 
 Can clone github repo and upload file to repo directly from the text editor
 
