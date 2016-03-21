@@ -11,7 +11,7 @@ when you create new syntax highlighting, make filename, sytanx<language> (such a
 
 import the new syntax file to main.py at line no.7
 
-add the syntax activation function at def syntaxActivated (Line no.241)
+add the syntax activation function at def syntaxActivated (Line no.241) [in main.py]
 
 PyLab (www.pylab.tk)
 
