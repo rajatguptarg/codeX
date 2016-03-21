@@ -1,6 +1,8 @@
 # codeX
 Text Editor written in Python using Qt framework (Beta Version)
 
+Can clone github repo and upload file to repo directly from the text editor
+
 It can only support python for syntax highlighting for now.
 
 If you would like to contribute please note that
