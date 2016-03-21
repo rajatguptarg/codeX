@@ -9,7 +9,7 @@ If you would like to contribute please note that
 
 when you create new syntax highlighting, make filename, sytanx<language> (such as Ruby, C) undersyntax folder then add language name to the list in syntaxPack.py under syntax folder.
 
-import the file to main.py at line no.7
+import the new syntax file to main.py at line no.7
 
 add the syntax activation function at def syntaxActivated (Line no.241)
 
