@@ -7,7 +7,7 @@ It can only support python for syntax highlighting for now.
 
 If you would like to contribute please note that
 
-when you create new syntax highlighting, make filename, sytanx<language> (such as Ruby, C) undersyntax folder
+when you create new syntax highlighting, make filename, sytanx<language> (such as Ruby, C) undersyntax folder then add language name to the list in syntaxPack.py under syntax folder.
 
 import the file to main.py at line no.7
 
