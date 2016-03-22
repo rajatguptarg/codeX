@@ -131,8 +131,6 @@ class Main(QtGui.QMainWindow):
         self.fontsize.setValue(12)
         self.fontsize.valueChanged.connect(lambda size: self.changeFontSize(size))
 
-
-
         # Adding to toolbar
         self.toolbar = self.addToolBar("Options")
 
@@ -188,7 +186,6 @@ class Main(QtGui.QMainWindow):
         self.setGeometry(100,100,800,450)
         self.setWindowTitle("CodeX (beta version)")
         self.setWindowIcon(QtGui.QIcon("icons/icon.png"))
-
 
     # Functions below are behind the sence
     # You cannot see them on UI but they are the real functions for
