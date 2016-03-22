@@ -24,6 +24,16 @@ class Main(QtGui.QMainWindow):
     # Functions below are used to show user interface on program
 
     def initMenubar(self):
+        
+        self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About CodeX", self)
+        self.about.setStatusTip("About CodeX")
+        self.about.triggered.connect(about.About(self).show)
+        
+        self.quit = QtGui.QAction("Quit", self)
+        self.quit.setStatusTip("Exit program")
+        self.quit.setShortcut("Ctrl+Q")
+        self.quit.triggered.connect(lambda value: exit(value)(0))
+
         menubar = self.menuBar()
 
         File = menubar.addMenu("File")
@@ -31,15 +41,12 @@ class Main(QtGui.QMainWindow):
         View = menubar.addMenu("View")
         Help = menubar.addMenu("Help")
 
-        self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About CodeX", self)
-        self.about.setStatusTip("About CodeX")
-        self.about.triggered.connect(about.About(self).show)
-
         File.addAction(self.newAction)
         File.addAction(self.openAction)
         File.addAction(self.saveAction)
         File.addAction(self.gitpush)
         File.addAction(self.printAction)
+        File.addAction(self.quit)
 
         Edit.addAction(self.findAction)
         Edit.addAction(self.redoAction)
