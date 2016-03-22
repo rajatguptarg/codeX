@@ -15,6 +15,6 @@ add the syntax activation function at def syntaxActivated (Line no.241) [in main
 
 PyLab (www.0xpylab.blogspot.com)
 
-About PyLab (www.0xpylab.blogspot.sg/2016/01/about-us.html)
+About PyLab (www.0xpylab.blogspot.com/2016/01/about-us.html)
 
 ![alt tag](http://i.imgur.com/HCwHUSC.png)
