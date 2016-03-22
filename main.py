@@ -119,7 +119,6 @@ class Main(QtGui.QMainWindow):
         self.statusbarAction = QtGui.QAction("Toggle Status Bar", self)
         self.statusbarAction.triggered.connect(self.toggleStatusbar)
 
-
         # Adding to toolbar
         self.toolbar = self.addToolBar("Options")
 
@@ -160,8 +159,6 @@ class Main(QtGui.QMainWindow):
         for language in syntaxPack.List:
             self.syntaxBox.addItem(language)
         self.syntaxBox.activated[str].connect(self.syntaxActivated)
-
-        #self.highlighter = syntaxPython.Highlighter(self.text.document())
 
         self.setCentralWidget(self.text)
         self.initToolbar()
