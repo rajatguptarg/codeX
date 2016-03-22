@@ -29,9 +29,9 @@ class Main(QtGui.QMainWindow):
         File = menubar.addMenu("File")
         Edit = menubar.addMenu("Edit")
         View = menubar.addMenu("View")
-        About = menubar.addMenu("About")
+        Help = menubar.addMenu("Help")
 
-        self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About us", self)
+        self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About CodeX", self)
         self.about.setStatusTip("About CodeX")
         self.about.triggered.connect(about.About(self).show)
 
@@ -48,7 +48,7 @@ class Main(QtGui.QMainWindow):
         View.addAction(self.previewAction)
         View.addAction(self.statusbarAction)
 
-        About.addAction(self.about)
+        Help.addAction(self.about)
 
     def initToolbar(self):
 
