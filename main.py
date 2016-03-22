@@ -4,7 +4,7 @@ from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import Qt
 
 from ext import find, about, gitpush
-from syntax import syntaxPack, syntaxPython
+from syntax import syntaxPack, C, Python
 
 def main():
     app = QtGui.QApplication(sys.argv)
@@ -248,8 +248,10 @@ class Main(QtGui.QMainWindow):
         webbrowser.open("mailto:pylab.2016@gmail.com")
 
     def syntaxActivated(self, lang):
-        if lang == 'Python':
-            self.highlighter = syntaxPython.Highlighter(self.text.document())
+        if lang == 'C':
+            self.highlighter = C.Highlighter(self.text.document())
+        elif lang == 'Python':
+            self.highlighter = Python.Highlighter(self.text.document())
 
 
 if __name__ == "__main__":
