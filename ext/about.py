@@ -19,7 +19,7 @@ class About(QtGui.QDialog):
         Content = QtGui.QLabel("      Beta Version\nGNU GPL License v(3.0)", self)
         Content.setFont(QtGui.QFont("Helvetica", 12))
 
-        Contact = QtGui.QLabel("PyLab www.pylab.tk")
+        Contact = QtGui.QLabel("PyLab www.0xpylab.blogspot.com")
 
         layout = QtGui.QGridLayout()
         layout.addWidget(Icon, 1,0)
