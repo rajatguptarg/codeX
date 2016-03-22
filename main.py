@@ -31,6 +31,10 @@ class Main(QtGui.QMainWindow):
         View = menubar.addMenu("View")
         About = menubar.addMenu("About")
 
+        self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About us", self)
+        self.about.setStatusTip("About CodeX")
+        self.about.triggered.connect(about.About(self).show)
+
         File.addAction(self.newAction)
         File.addAction(self.openAction)
         File.addAction(self.saveAction)
@@ -107,10 +111,6 @@ class Main(QtGui.QMainWindow):
         self.findAction.setShortcut("Ctrl+F")
         self.findAction.triggered.connect(find.Find(self).show)
 
-        self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About us", self)
-        self.about.setStatusTip("About CodeX")
-        self.about.triggered.connect(about.About(self).show)
-
         self.gitpush = QtGui.QAction(QtGui.QIcon("icons/git.ico"), "Upload to Github", self)
         self.gitpush.setStatusTip("Upload to GitHub")
         self.gitpush.setShortcut("Ctrl+G")
@@ -118,6 +118,13 @@ class Main(QtGui.QMainWindow):
 
         self.statusbarAction = QtGui.QAction("Toggle Status Bar", self)
         self.statusbarAction.triggered.connect(self.toggleStatusbar)
+
+        self.fontsize = QtGui.QSpinBox(self)
+        self.fontsize.setSuffix(" pt")
+        self.fontsize.setValue(12)
+        self.fontsize.valueChanged.connect(lambda size: self.changeFontSize(size))
+
+
 
         # Adding to toolbar
         self.toolbar = self.addToolBar("Options")
@@ -147,13 +154,16 @@ class Main(QtGui.QMainWindow):
         self.toolbar.addSeparator()
 
         self.toolbar.addWidget(self.syntaxBox)
+        self.toolbar.addSeparator()
+        self.toolbar.addWidget(self.fontsize)
 
     def initUI(self):
-        font = QtGui.QFont()
-        font.setFixedPitch(True)
-        font.setPointSize(12)
+        self.font = QtGui.QFont()
+        self.font.setFixedPitch(True)
+        self.font.setPointSize(12)
+
         self.text = QtGui.QTextEdit(self)
-        self.text.setFont(font)
+        self.text.setFont(self.font)
 
         # Adding drop-down menu bar to choose syntax
         for language in syntaxPack.List:
@@ -190,7 +200,7 @@ class Main(QtGui.QMainWindow):
         # Only open dialog if there is no filename yet
         if not self.filename:
             self.filename = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
-            
+
         with open(self.filename,"wt") as file:
             lines = self.text.toPlainText()
             file.write(lines)
@@ -215,9 +225,14 @@ class Main(QtGui.QMainWindow):
         state = self.statusbar.isVisible()
         self.statusbar.setVisible(not state)
 
+    def changeFontSize(self, size):
+        self.font.setPointSize(size)
+        self.text.setFont(self.font)
+
     def syntaxActivated(self, lang):
         if lang == 'Python':
             self.highlighter = syntaxPython.Highlighter(self.text.document())
+
 
 if __name__ == "__main__":
     main()
