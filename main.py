@@ -39,6 +39,10 @@ class Main(QtGui.QMainWindow):
         self.viewlicense.setStatusTip("View License")
         self.viewlicense.triggered.connect(self.license)
 
+        self.feedback = QtGui.QAction("Email us", self)
+        self.feedback.setStatusTip("Email us your feedback")
+        self.feedback.triggered.connect(self.mailto)
+
         menubar = self.menuBar()
 
         File = menubar.addMenu("File")
@@ -61,6 +65,7 @@ class Main(QtGui.QMainWindow):
         View.addAction(self.statusbarAction)
 
         Help.addAction(self.viewlicense)
+        Help.addAction(self.feedback)
         Help.addAction(self.about)
 
     def initToolbar(self):
@@ -241,6 +246,9 @@ class Main(QtGui.QMainWindow):
 
     def license(self):
         webbrowser.open("https://www.github.com/Hadesy2k/codeX/blob/master/LICENSE")
+
+    def mailto(self):
+        webbrowser.open("mailto:pylab.2016@gmail.com")
 
     def syntaxActivated(self, lang):
         if lang == 'Python':
