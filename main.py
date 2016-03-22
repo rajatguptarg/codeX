@@ -1,5 +1,4 @@
 import sys
-import re
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import Qt
 
@@ -198,24 +197,7 @@ class Main(QtGui.QMainWindow):
         # We just store the contents of the text file along with the
         # format in html, which Qt does in a very nice way for us
         with open(self.filename,"wt") as file:
-            lines = str(self.text.toHtml())
-
-            # Removing unnecessary HTML tags
-            lines = re.sub(r'<!DOCTYPE (.*)>', "", lines)
-            lines = re.sub(r'<html>(.*)type="text/css">', "", lines)
-            lines = re.sub(r'p, li(.*)}', "", lines)
-            lines = re.sub(r'</style>(.*)">', "", lines)
-            lines = re.sub(r'<p (.*)">', "", lines)
-
-            # Removing end tags
-            lines = re.sub(r'</p>', "", lines)
-            lines = re.sub(r'<br />', "", lines)
-            lines = re.sub(r'</body>', "", lines)
-            lines = re.sub(r'</html>', "", lines)
-
-            # Replacing &quot; with "
-            lines = re.sub(r'&quot;', '"', lines)
-
+            lines = self.text.toPlainText()
             file.write(lines)
 
     def Print(self):
