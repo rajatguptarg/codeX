@@ -13,6 +13,6 @@ import the new syntax file to main.py at line no.7
 
 add the syntax activation function at def syntaxActivated (Line no.241) [in main.py]
 
-PyLab (www.pylab.tk)
+PyLab (www.0xpylab.blogspot.com)
 
 ![alt tag](http://i.imgur.com/HCwHUSC.png)
