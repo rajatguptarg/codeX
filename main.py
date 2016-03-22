@@ -1,4 +1,5 @@
 import sys
+import webbrowser
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import Qt
 
@@ -24,15 +25,19 @@ class Main(QtGui.QMainWindow):
     # Functions below are used to show user interface on program
 
     def initMenubar(self):
-        
+
         self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About CodeX", self)
         self.about.setStatusTip("About CodeX")
         self.about.triggered.connect(about.About(self).show)
-        
+
         self.quit = QtGui.QAction("Quit", self)
         self.quit.setStatusTip("Exit program")
         self.quit.setShortcut("Ctrl+Q")
         self.quit.triggered.connect(lambda value: exit(value)(0))
+
+        self.viewlicense = QtGui.QAction("View License", self)
+        self.viewlicense.setStatusTip("View License")
+        self.viewlicense.triggered.connect(self.license)
 
         menubar = self.menuBar()
 
@@ -55,6 +60,7 @@ class Main(QtGui.QMainWindow):
         View.addAction(self.previewAction)
         View.addAction(self.statusbarAction)
 
+        Help.addAction(self.viewlicense)
         Help.addAction(self.about)
 
     def initToolbar(self):
@@ -232,6 +238,9 @@ class Main(QtGui.QMainWindow):
     def changeFontSize(self, size):
         self.font.setPointSize(size)
         self.text.setFont(self.font)
+
+    def license(self):
+        webbrowser.open("https://www.github.com/Hadesy2k/codeX/blob/master/LICENSE")
 
     def syntaxActivated(self, lang):
         if lang == 'Python':
