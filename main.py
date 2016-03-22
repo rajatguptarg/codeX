@@ -17,13 +17,10 @@ class Main(QtGui.QMainWindow):
     def __init__(self, parent = None):
         QtGui.QMainWindow.__init__(self,parent)
         self.filename = ""
-
         self.syntaxBox = QtGui.QComboBox(self)
-
         self.initUI()
 
     # Functions below are used to show user interface on program
-
     def initMenubar(self):
 
         self.about = QtGui.QAction(QtGui.QIcon("icons/about.png"), "About CodeX", self)
