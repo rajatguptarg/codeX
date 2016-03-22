@@ -193,9 +193,7 @@ class Main(QtGui.QMainWindow):
         # Only open dialog if there is no filename yet
         if not self.filename:
             self.filename = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
-
-        # We just store the contents of the text file along with the
-        # format in html, which Qt does in a very nice way for us
+            
         with open(self.filename,"wt") as file:
             lines = self.text.toPlainText()
             file.write(lines)
